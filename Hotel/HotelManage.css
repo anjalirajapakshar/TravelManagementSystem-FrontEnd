@@ -39,8 +39,9 @@ html{
     font-size: 25px;
 }
 
-.guideId{
+#HotelId{
     font-size: 25px;
+    width: 100px;
 }
 
 
@@ -58,6 +59,16 @@ html{
     margin: 5px;
 }
 
-.dataTable{
-    overflow-x: auto;
+#clearButton{
+    background: burlywood;
+    color: black;
+    padding: 7px;
+    margin: 5px;
+}
+
+#deleteGuide{
+    background: bisque;
+    color: black;
+    padding: 7px;
+    margin: 5px;
 }
