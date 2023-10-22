@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--    <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.css">-->
+<!--    <link rel="stylesheet" href="assests/bootstrap/js/bootstrap.js">-->
+<!--    <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="assests/bootstrap/js/bootstrap.min.js">-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" class="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assests/images/lala2.jpg" type="image">
+    <title>Next Travel Pvt.Ltd</title>
+</head>
+<body>
+
+<!--header section starts-->
+<header class="header">
+    <a href="#" class="logo"> <i class="fas fa-paper-plane"></i>travel</a>
+
+    <form action="" class="search-from">
+        <input type="search" name="" placeholder="search here..." id="searchBox">
+        <label for="searchBox" class="fas fa-search"></label>
+    </form>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-moon" id="theme-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#package">packages</a>
+        <a href="#service">services</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <form action="" class="login-form" >
+        <div class="inputBox">
+            <span>username</span>
+            <input type="text" placeholder="enter your name">
+        </div>
+
+        <div class="inputBox">
+            <span>password</span>
+            <input type="password" placeholder="enter your password">
+        </div>
+
+        <div class="remember">
+            <input type="checkbox" name="" id="login-remember">
+            <label for="login-remember">remember me</label>
+        </div>
+
+        <input type="submit" class="btn" value="login">
+
+        <label class="lala">don't have an account</label><a href="adminPaneldashboard/registerForm.html">Register Now</a>
+    </form>
+
+</header>
+<!--header section ends-->
+
+<!--home section starts-->
+<section class="home" id="home">
+    <div class="image" >
+        <img src="assests/images/lala.png" alt="">
+    </div>
+
+    <div class="content">
+        <h3>adventure is worthwhile</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores blanditiis, corporis
+            delectus dolorum earum ipsam itaque iusto laborum odio quam, qui quibusdam sed, sequi sunt voluptatibus
+            voluptatum? Id, porro?</p>
+        <a href="#" class="btn">explore now</a>
+    </div>
+
+</section>
+<!--home section ends-->
+
+<!--package section starts-->
+
+<section class="packages" id="package">
+    <h1 class="heading"> our <span>packages</span></h1>
+
+    <div class="box-container">
+        <div class="box">
+            <div class="image">
+                <img src="assests/images/luxury.jpg" alt="">
+                <h3><i class="fas fa-paper-plane"></i> Super Luxury</h3>
+            </div>
+            <div class="content">
+                <div class="price"> 150,000 <span>200,000</span></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem earum est, id necessitatibus quisquam repellat. Blanditiis !</p>
+               <button id="SuperLuxuryBtn" class="btn"> book now
+<!--                   <a href="#" ></a>-->
+               </button>
+
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="assests/images/semiluxury.jpg" alt="">
+                <h3><i class="fas fa-paper-plane"></i> Luxury</h3>
+            </div>
+            <div class="content">
+                <div class="price"> 150,000 <span>200,000</span></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem earum est, id necessitatibus quisquam repellat. Blanditiis !</p>
+                <a href="#" class="btn"> book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="assests/images/midrange.jpg" alt="">
+                <h3><i class="fas fa-paper-plane"></i> Mid-level</h3>
+            </div>
+            <div class="content">
+                <div class="price"> 150,000 <span>200,000</span></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem earum est, id necessitatibus quisquam repellat. Blanditiis !</p>
+                <a href="#" class="btn"> book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="assests/images/regular.jpg" alt="">
+                <h3><i class="fas fa-paper-plane"></i> Regular</h3>
+            </div>
+            <div class="content">
+                <div class="price"> 150,000 <span>200,000</span></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores autem earum est, id necessitatibus quisquam repellat. Blanditiis !</p>
+                <a href="#" class="btn"> book now</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!--package section ends-->
+<!--service section startss-->
+
+<section class="services" id="service">
+    <h1 class="heading"> our <span>services</span></h1>
+
+    <div class="box-container">
+        <div class="box">
+            <span>01</span>
+            <i class="fas fa-hotel"></i>
+            <h3>affordable hotels</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nemo.</p>
+        </div>
+
+        <div class="box">
+            <span>02</span>
+            <i class="fas fa-car"></i>
+            <h3>fastest travel</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nemo.</p>
+        </div>
+
+        <div class="box">
+            <span>03</span>
+            <i class="fas fa-hiking"></i>
+            <h3>new adventures</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nemo.</p>
+        </div>
+
+        <div class="box">
+            <span>04</span>
+            <i class="fas fa-bullhorn"></i>
+            <h3>safety guide</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nemo.</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!--service section ends-->
+<!--review section startss-->
+<section class="reviews" id="review">
+    <h1 class="heading"> client's <span>review</span></h1>
+    
+    <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <img src="assests/images/a15.jpeg" alt="">
+                <h3>anjali rajapaksha</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores beatae consectetur
+                    debitis dolore dolorem doloribus ducimus error, et eum, id laborum minima nihil perferendis
+                    porro quae quam ratione temporibus!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+
+            <div class="swiper-slide slide">
+                <img src="assests/images/a15.jpeg" alt="">
+                <h3>anjali rajapaksha</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores beatae consectetur
+                    debitis dolore dolorem doloribus ducimus error, et eum, id laborum minima nihil perferendis
+                    porro quae quam ratione temporibus!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+
+            <div class="swiper-slide slide">
+                <img src="assests/images/a15.jpeg" alt="">
+                <h3>anjali rajapaksha</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores beatae consectetur
+                    debitis dolore dolorem doloribus ducimus error, et eum, id laborum minima nihil perferendis
+                    porro quae quam ratione temporibus!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="assests/images/a15.jpeg" alt="">
+                <h3>anjali rajapaksha</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores beatae consectetur
+                    debitis dolore dolorem doloribus ducimus error, et eum, id laborum minima nihil perferendis
+                    porro quae quam ratione temporibus!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="assests/images/a15.jpeg" alt="">
+                <h3>anjali rajapaksha</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores beatae consectetur
+                    debitis dolore dolorem doloribus ducimus error, et eum, id laborum minima nihil perferendis
+                    porro quae quam ratione temporibus!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <img src="assests/images/a15.jpeg" alt="">
+                <h3>anjali rajapaksha</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores beatae consectetur
+                    debitis dolore dolorem doloribus ducimus error, et eum, id laborum minima nihil perferendis
+                    porro quae quam ratione temporibus!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+    
+</section>
+
+<!--review section ends-->
+<!--contact section starts-->
+<section class="contact" id="contact">
+    <h1 class="heading"><span>contact</span> us</h1>
+
+    <form action="">
+        <div class="inputBox">
+            <input type="text" placeholder="name">
+            <input type="email" placeholder="email">
+        </div>
+
+        <div class="inputBox">
+            <input type="number" placeholder="number">
+            <input type="text" placeholder="subject">
+        </div>
+
+        <textarea name="" placeholder="your message..." id="" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="send message" class="btn">
+    </form>
+
+</section>
+
+<!--contact section ends-->
+
+<section class="footer">
+    <div class="footer-text">
+        <p>Copyright &copy; 2023 by Anjali Rajapaksha | All Rights Reserved.</p>
+    </div>
+
+    <div class="footer-iconTop">
+        <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+</section>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!--custom js file link-->
+<script src="script.js" ></script>
+
+</body>
+</html>
