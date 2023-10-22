@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../assests/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assests/bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="../assests/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assests/bootstrap/js/bootstrap.min.js">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" class="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href="AdminStyle.css">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<div class="containerr">
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+          <span class="title"><h3>Next-Travel</h3></span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+          <span class="title">Dashboard</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+          <span class="title">Users</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-archive" aria-hidden="true"></i></span>
+          <span class="title">Packages</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-car" aria-hidden="true"></i></span>
+          <span class="title">Vehicles</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-bed" aria-hidden="true"></i></span>
+          <span class="title">Hotels</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+          <span class="title">Payments</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+          <span class="title">PackageDetails</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#" id="guide" >
+          <span class="icon"><i class="fa fa-male" aria-hidden="true"></i></span>
+          <span class="title">Guides</span>
+        </a>
+
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa fa-reply" aria-hidden="true"></i></span>
+          <span class="title">Sign Out</span>
+        </a>
+
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="main">
+    <div class="topbar">
+      <div class="toggle" onclick="toggleMenu();"><i class="fa fa-bars" aria-hidden="true"></i></div>
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Search here...">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </label>
+      </div>
+      <div class="user">
+        <img src="../assests/images/a15.jpeg" width="100px" height="100px">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="lalala">
+    <div class="cardBox">
+
+      <div class="card">
+        <div>
+          <div class="numbers">1042</div>
+          <div class="cardName">Daily Views</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="numbers">80</div>
+          <div class="cardName">Bookings</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-bookmark" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="numbers">208</div>
+          <div class="cardName">Comments</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-comments" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="numbers">Rs.540,000</div>
+          <div class="cardName">Earnings</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="details">
+
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <h2>Recent Bookings</h2>
+          <a href="#" class="btn">View All</a>
+        </div>
+        <table>
+          <thead>
+          <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Payment</td>
+            <td>Status</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Super Luxury</td>
+            <td>Rs.250,000</td>
+            <td>Paid</td>
+            <td><span class="status completed">Completed</span></td>
+          </tr>
+
+          <tr>
+            <td>Luxury</td>
+            <td>Rs.80,000</td>
+            <td>Due</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+
+          <tr>
+            <td>Mid-range</td>
+            <td>Rs.50,000</td>
+            <td>Paid</td>
+            <td><span class="status completed">Completed</span></td>
+          </tr>
+
+          <tr>
+            <td>Regular</td>
+            <td>Rs.25,000</td>
+            <td>Due</td>
+            <td><span class="status inprogress">In Progress</span></td>
+          </tr>
+
+          <tr>
+            <td>Super Luxury</td>
+            <td>Rs.250,000</td>
+            <td>Paid</td>
+            <td><span class="status completed">Completed</span></td>
+          </tr>
+
+          <tr>
+            <td>Luxury</td>
+            <td>Rs.80,000</td>
+            <td>Due</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+
+          <tr>
+            <td>Mid-range</td>
+            <td>Rs.50,000</td>
+            <td>Paid</td>
+            <td><span class="status completed">Completed</span></td>
+          </tr>
+
+          <tr>
+            <td>Regular</td>
+            <td>Rs.25,000</td>
+            <td>Due</td>
+            <td><span class="status inprogress">In Progress</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="recentCustomers">
+        <div class="cardHeader">
+          <h2>Recent Customers</h2>
+        </div>
+
+        <table>
+          <tbody>
+          <tr>
+            <td width="60px"><div class="imgBx"><img src="../assests/images/a12.JPG" alt="" width="100px" height="100px"></div></td>
+            <td><h4>Rosy<br><span>Galle</span></h4></td>
+          </tr>
+
+          <tr>
+            <td width="60px"><div class="imgBx"><img src="../assests/images/a12.JPG" alt="" width="100px" height="100px"></div></td>
+            <td><h4>Rosy<br><span>Kaluthara</span></h4></td>
+          </tr>
+
+          <tr>
+            <td width="60px"><div class="imgBx"><img src="../assests/images/a12.JPG" alt="" width="100px" height="100px"></div></td>
+            <td><h4>Rosy<br><span>NuwaraEliya</span></h4></td>
+          </tr>
+
+          <tr>
+            <td width="60px"><div class="imgBx"><img src="../assests/images/a12.JPG" alt="" width="100px" height="100px"></div></td>
+            <td><h4>Rosy<br><span>Hambanthota</span></h4></td>
+          </tr>
+
+          <tr>
+            <td width="60px"><div class="imgBx"><img src="../assests/images/a12.JPG" alt="" width="100px" height="100px"></div></td>
+            <td><h4>Rosy<br><span>Mathara</span></h4></td>
+          </tr>
+
+          <tr>
+            <td width="60px"><div class="imgBx"><img src="../assests/images/a12.JPG" alt="" width="100px" height="100px"></div></td>
+            <td><h4>Rosy<br><span>Badulla</span></h4></td>
+          </tr>
+
+
+
+          </tbody>
+        </table>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+</div>
+
+<script src="../assests/jQuery/jquery-3.6.4.min.js"></script>
+<script>
+  // function loadHtml(id,filename) {
+  //   console.log(`div id: ${id}, filename: ${filename}`);
+  //
+  //   let xhttp;
+  //   let element = document.getElementById(id);
+  //   let file = filename;
+  //
+  //   if (file){
+  //     xhttp = new XMLHttpRequest();
+  //     xhttp.onreadystatechange = function (){
+  //       if(this.readyState === 4){
+  //         if(this.status === 200){element.innerHTML = this.responseText;}
+  //         if(this.status === 404){element.innerHTML = "<h1>Page not found.</h1>";}
+  //       }
+  //     }
+  //     xhttp.open("GET" , `templates/${file}`, true);
+  //     xhttp.send();
+  //     return;
+  //   }
+  //
+  // }
+
+
+
+
+  //
+  // $(document).ready(function () {
+  //   $('#guide').click(function () {
+  //     $('.lalala').load('GuideManage.html');
+  //   });
+  // });
+</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!--custom js file link-->
+<script src="../script.js" ></script>
+</body>
+</html>
