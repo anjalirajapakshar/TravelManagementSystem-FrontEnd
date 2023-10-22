@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    localStorage.setItem("adminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdWxhbmphbmEiLCJpYXQiOjE2OTc4OTIyOTUsImV4cCI6NDg1MTQ5MjI5NX0.DmVOZDFi5b1o630bJ8BZP1pxEbuolQgFycv0pOe2uhI"))
+    localStorage.setItem("adminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYXN1biIsImlhdCI6MTY5Nzg5MjEzMSwiZXhwIjo0ODUxNDkyMTMxfQ.hweUKUmxIJT77ugJBBkYoyRxjbZ1eHmEJNKcu0yTQ2U"))
     $("#VehicleId").prop("disabled", true);
     addTableField();
     packageIds();
@@ -274,7 +274,7 @@ $(document).ready(() => {
                         $("#drivercontact").val(res.data.driversContactNumber);
                         // $("#driverLicenseImageLocation").val(res.data.driverLicenseImageLocation);
 
-                        swal("OOPS!","cannot find guide");
+                        // swal("OOPS!","cannot find guide");
 
 
                         $(document).on("click", "#deleteGuide", () => {
