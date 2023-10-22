@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!--  <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.css">-->
+  <!--  <link rel="stylesheet" href="assests/bootstrap/js/bootstrap.js">-->
+  <!--  <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css">-->
+  <!--  <link rel="stylesheet" href="assests/bootstrap/js/bootstrap.min.js">-->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" class="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>NextTravel-VehicleDashBoard</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+    *{
+      font-family: 'Poppins' , sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      overflow-x: hidden;
+    }
+
+    .containerr{
+      position: relative;
+      width: 100%;
+    }
+
+    .content{
+      position: absolute;
+      width: 100%;
+      min-height:100vh;
+      background: #f5f5f5;
+      transition: 0.5s;
+      /*min-height: 100vh;*/
+    }
+
+    .toggle{
+      position: absolute;
+      left: 30px;
+    }
+
+    .guidemanager{
+      position: relative;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+    span{
+      color: burlywood;
+    }
+
+    .cardBox{
+      position: relative;
+      width: 100%;
+      padding: 20px;
+      padding-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      grid-gap: 20px;
+    }
+
+    .cardBox .card{
+      position: relative;
+      background: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .cardBox .card .numbers{
+      position: relative;
+      font-size: 2em;
+      font-weight: 500;
+    }
+
+    .cardBox .card .cardName{
+      color: #999;
+    }
+
+    .cardBox .card .iconBox{
+      font-size: 1.8rem;
+      color: burlywood;
+      position: absolute;
+      right: 20px;
+    }
+
+    .details{
+      position: relative;
+      /*width: 100%;*/
+      margin-bottom: 30px;
+      padding: 20px;
+      padding-top: 0;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 1fr;
+    }
+
+    .details .recentOrders{
+      position: relative;
+      min-height: fit-content;
+      background: #fff;
+      padding: 20px;
+    }
+
+    .details .cardHeader{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cardHeader h2 {
+      font-weight: 600;
+    }
+
+    .details .cardHeader .btn {
+      position: relative;
+      padding: 5px 10px;
+      background: #f2e7c3;
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .details table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .details table thead td{
+      font-weight: 600;
+    }
+
+    .details .recentOrders table tr{
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .details .recentOrders table tr:last-child{
+      border-bottom: none;
+    }
+
+    .details .recentOrders table tr:hover{
+      background: beige;
+      color: black;
+    }
+
+    .details .recentOrders table tr td{
+      padding: 9px 5px;
+    }
+
+    .details .recentOrders table thead tr td:last-child,
+    .details .recentOrders table tbody tr td:last-child{
+      text-align: right;
+    }
+
+    .details .recentOrders table thead tr td:nth-child(2),
+    .details .recentOrders table tbody tr td:nth-child(2){
+      text-align: right;
+      /*padding-right: 20px;*/
+    }
+
+    .details .recentOrders table thead tr td:nth-child(3),
+    .details .recentOrders table thead tr td:nth-child(4),
+    .details .recentOrders table thead tr td:nth-child(5),
+    .details .recentOrders table thead tr td:nth-child(6),
+    .details .recentOrders table thead tr td:nth-child(7){
+      text-align: center;
+    }
+
+
+    .details .recentOrders table tbody tr td:nth-child(3),
+    .details .recentOrders table tbody tr td:nth-child(4),
+    .details .recentOrders table tbody tr td:nth-child(5),
+    .details .recentOrders table tbody tr td:nth-child(6),
+    .details .recentOrders table tbody tr td:nth-child(7){
+      text-align: center;
+    }
+
+    @media (max-width: 992px) {
+      .cardBox{
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 768px){
+      .cardHeader h2{
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 580px){
+      .cardBox{
+        grid-template-columns: repeat(1,1fr);
+      }
+
+      .details .recentOrders{
+        overflow-x: auto;
+      }
+
+      .details .recentOrders table{
+        width: 600px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div class="containerr">
+
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Next-Travel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Vehicle/VehicleManage.html" id="mangeguide">Manage Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../adminPaneldashboard/adminPanelDashboard.html" id="logout">LogOut</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="content">
+
+    <div class="guidemanager">
+      <h1>Vehicle <span>Manager...</span></h1>
+    </div>
+
+    <div class="cardBox">
+
+      <div class="card">
+        <div>
+          <div class="numbers">1042</div>
+          <div class="cardName">Average Vehicles</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-male" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="numbers">4.5</div>
+          <div class="cardName">Average Vehicle Rating</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="numbers">208</div>
+          <div class="cardName">Comments</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-comments" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="numbers">Rs.75,000</div>
+          <div class="cardName">Average Vehicle Price</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="details">
+
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <h2>Recent Vehicles</h2>
+          <a href="#" class="btn">View All</a>
+        </div>
+        <table>
+          <thead>
+          <tr>
+            <td>Vehicle Id</td>
+            <td>Brand</td>
+            <td>fuel Type</td>
+            <td>fuel usage</td>
+            <td>Hybrid?</td>
+            <td>seat capacity</td>
+            <td>Vehicle Type</td>
+            <td>Driver</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>V001</td>
+            <td>Suzuki Celerio </td>
+            <td>P/M - Petrol Manual Transmission</td>
+            <td>22km/l</td>
+            <td>No</td>
+            <td>4</td>
+            <td>Compact</td>
+            <td>John Smith</td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
