@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    localStorage.setItem("adminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWxpdGhpIiwiaWF0IjoxNjk3ODkyNDAyLCJleHAiOjQ4NTE0OTI0MDJ9.gtcCEpHg3WDTq5DIYKu27WyMGP-JYMJmHTnmcgJzLIM"))
+    localStorage.setItem("packageAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlBBIiwic3ViIjoibWFsaXRoaSIsImlhdCI6MTY5ODA0MDkwNSwiZXhwIjo0ODUxNjQwOTA1fQ.I-0C7nqNmU22YEifSWvVLgtbrynlh61TZfPy98NHlmU"))
     $("#PackageId").prop("disabled", true);
     addTableField();
 });
@@ -33,11 +33,11 @@ $(document).ready(() => {
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/packages/savePackage",
+                url: "http://localhost:8082/save",
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
                 },
                 data: JSON.stringify(packages),
                 success: (response) => {
@@ -72,11 +72,11 @@ $(document).ready(() => {
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/packages/updatePackage",
+                url: "http://localhost:8082/update",
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
                 },
                 data: JSON.stringify(packages),
                 success: (response) => {
@@ -101,10 +101,10 @@ $(document).ready(() => {
 
         if (event.key === 'Enter') {
             $.ajax({
-                url: "http://localhost:8080/api/v1/packages/getPackageByUserName?PackageName=" + $("#Packcategory").val(),
+                url: "http://localhost:8082/getPackageByUserName?PackageName=" + $("#Packcategory").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
@@ -137,10 +137,10 @@ $(document).ready(() => {
 
         if (event.key === 'Enter') {
             $.ajax({
-                url: "http://localhost:8080/api/v1/packages/getPackageByUserName?PackageName=" + $("#Packcategory").val(),
+                url: "http://localhost:8082/getPackageByUserName?PackageName=" + $("#Packcategory").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
@@ -161,24 +161,26 @@ $(document).ready(() => {
                             }
 
                             $.ajax({
-                                url: "http://localhost:8080/api/v1/packages/deletePackage?packagesId=" + $("#PackageId").val(),
+                                url: "http://localhost:8082/delete?packagesId=" + $("#PackageId").val(),
                                 method: "DELETE",
                                 headers: {
-                                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
                                 },
                                 success: (res) => {
-                                    console.log(res.data)
+                                    console.log(res.message)
                                     if (res.statusCode === 200 || res.statusCode === 201) {
                                         addTableField();
                                         clearFields();
-                                        return swal("Done!", res.message, "success");
+                                        return swal("Done!", "success");
 
 
                                     }
-                                    swal("OOPS!", res.message, "error");
+
+                                    swal("OOPS!", "error");
 
                                 },
                                 error: (error) => {
+                                    console.log(error.responseJSON.message)
                                     swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
                                 }
 
@@ -221,10 +223,10 @@ $(document).ready(() => {
 
 function  addTableField(){
     $.ajax({
-        url: "http://localhost:8080/api/v1/packages/fetchAllPackages",
+        url: "http://localhost:8082/fetchAll",
         method: "GET",
         headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
         },
         success: (res) => {
 
@@ -236,8 +238,8 @@ function  addTableField(){
                 html += "<tr>";
                 html += "<td>" + packages.packageId + "</td>";
                 html += "<td>" + packages.packageCategory + "</td>";
-                html += "<td>" + packages.vehicleCategory + "</td>";
                 html += "<td>" + packages.hotelCategory + "</td>";
+                html += "<td>" + packages.vehicleCategory + "</td>";
                 html += '<td><button onclick="deleteDataa(' + guideId + ')" class="btn btn-danger">Delete</button><button onclick="UpdateData(' + guideName + ')" class="btn btn-warning m-2">Edit</button></td>';
                 html += "</tr>";
             })
