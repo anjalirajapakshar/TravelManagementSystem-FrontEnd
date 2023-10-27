@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    font-family: 'Poppins' , sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 95%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+.container{
+    /*padding: 40px;*/
+    position: relative;
+    /*position: absolute;*/
+    /*width: calc(100% - 300px);*/
+    min-height: 100vh;
+    min-width: 100vw;
+    background: #f5f5f5;
+    width: 100%;
+    transition: 0.5s;
+    left: 0px;
+}
+
+
+.row2{
+    position: absolute;
+    /*background: #0dcaf0;*/
+    width: 100%;
+    /*height: calc(100%- 120px);*/
+    left: 800px;
+    min-height: 100vh;
+    background: #f5f5f5;
+    /*top: 0px;*/
+    right: 200px;
+    /*margin-bottom: 30px;*/
+    padding: 10px;
+}
+
+.row2 .form-group{
+    left: 10px;
+}
+
+#row3{
+    position: absolute;
+    background: #0dcaf0;
+    width: 100%;
+    /*height: calc(100%- 120px);*/
+    /*left: 80px;*/
+    top: 100px;
+    /*right: 200px;*/
+    /*margin-top: 30px;*/
+    height: 130vh;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/*#row3 img{*/
+/*    top: 50px;*/
+/*    left: 50px;*/
+/*}*/
+
+
+.icon{
+    font-size: 25px;
+    padding-right: 7px;
+}
+
+.title{
+    font-size: 25px;
+}
+
+#PackageDetailId{
+    font-size: 25px;
+    width: 140px;
+}
+
+#vehicleCharge{
+    font-size: 20px;
+    width: 160px;
+}
+
+#hotelCharge{
+    font-size: 20px;
+    width: 140px;
+}
+
+#guideCharge{
+    font-size: 20px;
+    width: 140px;
+}
+
+#serviceCharge{
+    font-size: 20px;
+    width: 170px;
+}
+
+#totbookingprice{
+    font-size: 20px;
+    width: 150px;
+}
+
+#totPackageCharge{
+    font-size: 20px;
+    width: 140px;
+}
+
+
+.iconuser{
+    font-size: 25px;
+    padding-right: 7px;
+    margin-left: 22px;
+}
+
+#user{
+    font-size: 25px;
+    width: 100px;
+
+}
+
+.form-group{
+    padding: 5px;
+}
+
+#Submit{
+    background: burlywood;
+    color: black;
+    padding: 7px;
+    margin: 5px;
+}
+
+
+#clearButton{
+    background: burlywood;
+    color: black;
+    padding: 7px;
+    margin: 5px;
+}
+
+#payment{
+    background: orangered;
+    color: black;
+    padding: 7px;
+    margin: 5px;
+}
+
+#package{
+    font-size: 20px;
+    width: 140px;
+}
+
+
