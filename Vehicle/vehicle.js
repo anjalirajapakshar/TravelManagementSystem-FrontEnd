@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    localStorage.setItem("adminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYXN1biIsImlhdCI6MTY5Nzg5MjEzMSwiZXhwIjo0ODUxNDkyMTMxfQ.hweUKUmxIJT77ugJBBkYoyRxjbZ1eHmEJNKcu0yTQ2U"))
+    localStorage.setItem("vehicleAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlZBIiwic3ViIjoia2FzdW4iLCJpYXQiOjE2OTgwNDA3NzYsImV4cCI6NDg1MTY0MDc3Nn0.Kfy3AZzucGGRjveWQTW0azWpxYziJ3xEmY25LuL41N8"))
     $("#VehicleId").prop("disabled", true);
     addTableField();
     packageIds();
@@ -32,11 +32,11 @@ var superluxuryId = '';
 
 function packageIds() {
     $.ajax({
-        url: "http://localhost:8080/api/v1/packages/fetchAllPackages",
+        url: "http://localhost:8082/fetchAll",
         method: "GET",
         headers: {
             // "content-type": "application/json",
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
         },
         success: (response) => {
             if (response.statusCode === 302) {
@@ -118,6 +118,8 @@ $(document).ready(() => {
                 fuelType: $("#fueltype").val(),
                 hybridOrNot: hybridSelected,
                 fuelUsage: $("#fuelusage").val(),
+                feeForDay: $("#feeForDay").val(),
+                feeForOnekm: $("#feeForOnekm").val(),
                 vehicleImage: $("#vehicleImageLocation").val(),
                 seatCapacity: $("#seatCap").val(),
                 vehicleType: $("#vehicletype").val(),
@@ -129,11 +131,11 @@ $(document).ready(() => {
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/vehicle/sv",
+                url: "http://localhost:8087/save",
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
                 },
                 data: JSON.stringify(vehicle),
                 success: (response) => {
@@ -167,6 +169,8 @@ $(document).ready(() => {
                 fuelType: $("#fueltype").val(),
                 hybridOrNot: hybridSelected,
                 fuelUsage: $("#fuelusage").val(),
+                feeForDay: $("#feeForDay").val(),
+                feeForOnekm: $("#feeForOnekm").val(),
                 vehicleImage: $("#vehicleImageLocation").val(),
                 seatCapacity: $("#seatCap").val(),
                 vehicleType: $("#vehicletype").val(),
@@ -178,11 +182,11 @@ $(document).ready(() => {
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/vehicle/update",
+                url: "http://localhost:8087/update",
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
                 },
                 data: JSON.stringify(vehicle),
                 success: (response) => {
@@ -207,10 +211,10 @@ $(document).ready(() => {
 
         if (event.key === 'Enter') {
             $.ajax({
-                url: "http://localhost:8080/api/v1/vehicle/getVehicleByUserName?VehicleBrand=" + $("#brand").val(),
+                url: "http://localhost:8087/getVehicleByUserName?VehicleBrand=" + $("#brand").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
@@ -222,6 +226,8 @@ $(document).ready(() => {
                         $("#category").val(res.data.vehicleCategory);
                         $("#fueltype").val(res.data.fuelType);
                         $("#fuelusage").val(res.data.fuelUsage);
+                        $("#feeForDay").val(res.data.feeForDay);
+                        $("#feeForOnekm").val(res.data.feeForOnekm);
                         // $("#vehicleImageLocation").val(res.data.vehicleImage);
                         $("#seatCap").val(res.data.seatCapacity);
                         $("#vehicletype").val(res.data.vehicleType);
@@ -251,10 +257,10 @@ $(document).ready(() => {
 
         if (event.key === 'Enter') {
             $.ajax({
-                url: "http://localhost:8080/api/v1/vehicle/getVehicleByUserName?VehicleBrand=" + $("#brand").val(),
+                url: "http://localhost:8087/getVehicleByUserName?VehicleBrand=" + $("#brand").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
@@ -266,6 +272,8 @@ $(document).ready(() => {
                         $("#category").val(res.data.vehicleCategory);
                         $("#fueltype").val(res.data.fuelType);
                         $("#fuelusage").val(res.data.fuelUsage);
+                        $("#feeForDay").val(res.data.feeForDay);
+                        $("#feeForOnekm").val(res.data.feeForOnekm);
                         // $("#vehicleImageLocation").val(res.data.vehicleImage);
                         $("#seatCap").val(res.data.seatCapacity);
                         $("#vehicletype").val(res.data.vehicleType);
@@ -283,10 +291,10 @@ $(document).ready(() => {
                             }
 
                             $.ajax({
-                                url: "http://localhost:8080/api/v1/vehicle/delete?vehicleId=" + $("#VehicleId").val(),
+                                url: "http://localhost:8087/delete?vehicleId=" + $("#VehicleId").val(),
                                 method: "DELETE",
                                 headers: {
-                                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
                                 },
                                 success: (res) => {
                                     console.log(res.data)
@@ -317,7 +325,7 @@ $(document).ready(() => {
 });
 
 function validator() {
-    if ($("#brand").val() === "" || $("#category").val() === "" || $("#fueltype").val() === "" || $("#fuelusage").val() === "" || $("#vehicleImageLocation").val() === "" || $("#seatCap").val() === "" || $("#vehicletype").val() === "" || $("#transmissiontype").val() === "" || $("#drivername").val() === "" || $("#drivercontact").val() === "" || $("#driverLicenseImageLocation").val() === "") {
+    if ($("#brand").val() === "" || $("#category").val() === "" || $("#fueltype").val() === "" || $("#fuelusage").val() === "" || $("#feeForDay").val() === "" || $("#feeForOnekm").val() === "" ||$("#vehicleImageLocation").val() === "" || $("#seatCap").val() === "" || $("#vehicletype").val() === "" || $("#transmissiontype").val() === "" || $("#drivername").val() === "" || $("#drivercontact").val() === "" || $("#driverLicenseImageLocation").val() === "") {
         return false;
     }
     return true;
@@ -329,6 +337,8 @@ function clearFields() {
     $("#category").val("");
     $("#fueltype").val("");
     $("#fuelusage").val("");
+    $("#feeForDay").val("");
+    $("#feeForOnekm").val("");
     $("#vehicleImageLocation").val("");
     $("#seatCap").val("");
     $("#vehicletype").val("");
@@ -346,10 +356,10 @@ $(document).ready(() => {
 
 function  addTableField(){
     $.ajax({
-        url: "http://localhost:8080/api/v1/vehicle/fetchAll",
+        url: "http://localhost:8087/fetchAll",
         method: "GET",
         headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
         },
         success: (res) => {
 
