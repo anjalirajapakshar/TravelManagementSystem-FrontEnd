@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-    localStorage.setItem("adminAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmphbGkiLCJpYXQiOjE2OTc4OTE5OTIsImV4cCI6NDg1MTQ5MTk5Mn0.xxxS3CU8HGIkvd4vETMO7m95EU2vryQTTDPHe6e9o-g"))
+    localStorage.setItem("hotelAuthToken",JSON.stringify("eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IkhBIiwic3ViIjoiYW5qYWxpIiwiaWF0IjoxNjk4MDQwNDA0LCJleHAiOjQ4NTE2NDA0MDR9.brJ8SaiTCsLYNmyJDADNV_hOCWcQ8GZx7lFdX1WqwTc"))
     $("#HotelId").prop("disabled", true);
     addTableField();
     packageIds();
@@ -12,11 +12,11 @@ var superluxuryId = '';
 
 function packageIds() {
     $.ajax({
-        url: "http://localhost:8080/api/v1/packages/fetchAllPackages",
+        url: "http://localhost:8082/fetchAll",
         method: "GET",
         headers: {
             // "content-type": "application/json",
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
         },
         success: (response) => {
             if (response.statusCode === 302) {
@@ -96,24 +96,24 @@ $(document).ready(() => {
                 hotelName: $("#name").val(),
                 hotelCatageory: $("#category").val(),
                 hotelLocation: $("#location").val(),
-                hotelLocationWithCoordinates: $("#locwithCoordinators").val(),
+                hotelLocationWithCoordinates : $("#hotelLocationWithCoordinates").val(),
                 hotelEmail: $("#email").val(),
                 hotelContactNumber: $("#contact").val(),
                 isPetsAllowed: petSelected,
-                FullBoardDoublehotelFee: $("#fulldouble").val(),
-                HalfBoardDoublehotelFee: $("#halfdouble").val(),
-                FullBoardTriplehotelFee: $("#fulltriple").val(),
-                HalfBoardTriplehotelFee: $("#halftriple").val(),
+                fullDbl: $("#fulldouble").val(),
+                halfDbl: $("#halfdouble").val(),
+                fullTpl: $("#fulltriple").val(),
+                halfTpl: $("#halftriple").val(),
                 cancellationCriteria: $("#cancellation").val(),
                 packageId: packageSelectedId
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/hotel/sh",
+                url: "http://localhost:8085/save",
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
                 },
                 data: JSON.stringify(hotel),
                 success: (response) => {
@@ -145,24 +145,24 @@ $(document).ready(() => {
                 hotelName: $("#name").val(),
                 hotelCatageory: $("#category").val(),
                 hotelLocation: $("#location").val(),
-                hotelLocationWithCoordinates: $("#locwithCoordinators").val(),
+                hotelLocationWithCoordinates : $("#hotelLocationWithCoordinates").val(),
                 hotelEmail: $("#email").val(),
                 hotelContactNumber: $("#contact").val(),
                 isPetsAllowed: petSelected,
-                FullBoardDoublehotelFee: $("#fulldouble").val(),
-                HalfBoardDoublehotelFee: $("#halfdouble").val(),
-                FullBoardTriplehotelFee: $("#fulltriple").val(),
-                HalfBoardTriplehotelFee: $("#halftriple").val(),
+                fullDbl: $("#fulldouble").val(),
+                halfDbl: $("#halfdouble").val(),
+                fullTpl: $("#fulltriple").val(),
+                halfTpl: $("#halftriple").val(),
                 cancellationCriteria: $("#cancellation").val(),
-                packageId: packageSelectedId
+                packageId: $("#PackageIdd").val()
             }
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/hotel/updateHotel",
-                method: "POST",
+                url: "http://localhost:8085/update",
+                method: "PUT",
                 headers: {
                     "content-type": "application/json",
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
                 },
                 data: JSON.stringify(hotel),
                 success: (response) => {
@@ -187,33 +187,37 @@ $(document).ready(() => {
 
         if (event.key === 'Enter') {
             $.ajax({
-                url: "http://localhost:8080/api/v1/hotel/getHotelByUserName?HotelName=" + $("#name").val(),
+                url: "http://localhost:8085/getHotelByUserName?HotelName=" + $("#name").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
+                    $("#PackageId").val(res.data.packageId);
+
                     if (res.statusCode === 200 || res.statusCode === 201) {
                         $("#HotelId").prop("disabled", false);
                         $("#HotelId").val(res.data.hotelID);
                         $("#HotelId").prop("disabled", true);
                         $("#name").val(res.data.hotelName);
                         $("#category").val(res.data.hotelCatageory);
+                        $("#hotelLocationWithCoordinates").val(res.data.hotelLocationWithCoordinates);
                         $("#location").val(res.data.hotelLocation);
-                        $("#locwithCoordinators").val(res.data.hotelLocationWithCoordinates);
                         $("#email").val(res.data.hotelEmail);
                         $("#contact").val(res.data.hotelContactNumber);
-                        $("#fulldouble").val(res.data.FullBoardDoublehotelFee);
-                        $("#halfdouble").val(res.data.HalfBoardDoublehotelFee);
-                        $("#fulltriple").val(res.data.FullBoardTriplehotelFee);
-                        $("#halftriple").val(res.data.HalfBoardTriplehotelFee);
+                        $("#fulldouble").val(res.data.fullDbl);
+                        $("#halfdouble").val(res.data.halfDbl);
+                        $("#fulltriple").val(res.data.fullTpl);
+                        $("#halftriple").val(res.data.halfTpl);
                         $("#cancellation").val(res.data.cancellationCriteria);
 
-
+                        $("#PackageIdd").val(res.data.packageId);
                         return swal("Done!", "success");
 
                     }
+
+
                     swal("OOPS!","error");
                     clearFields();
 
@@ -234,10 +238,10 @@ $(document).ready(() => {
 
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/hotel/getHotelByUserName?HotelName=" + $("#name").val(),
+                url: "http://localhost:8085/getHotelByUserName?HotelName=" + $("#name").val(),
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
                 },
                 success: (res) => {
                     console.log(res.data)
@@ -248,14 +252,16 @@ $(document).ready(() => {
                         $("#name").val(res.data.hotelName);
                         $("#category").val(res.data.hotelCatageory);
                         $("#location").val(res.data.hotelLocation);
-                        $("#locwithCoordinators").val(res.data.hotelLocationWithCoordinates);
+                        $("#hotelLocationWithCoordinates").val(res.data.hotelLocationWithCoordinates);
                         $("#email").val(res.data.hotelEmail);
                         $("#contact").val(res.data.hotelContactNumber);
-                        $("#fulldouble").val(res.data.FullBoardDoublehotelFee);
-                        $("#halfdouble").val(res.data.HalfBoardDoublehotelFee);
-                        $("#fulltriple").val(res.data.FullBoardTriplehotelFee);
-                        $("#halftriple").val(res.data.HalfBoardTriplehotelFee);
+                        $("#fulldouble").val(res.data.fullDbl);
+                        $("#halfdouble").val(res.data.halfDbl);
+                        $("#fulltriple").val(res.data.fullTpl);
+                        $("#halftriple").val(res.data.halfTpl);
                         $("#cancellation").val(res.data.cancellationCriteria);
+
+                        $("#PackageIdd").val(res.data.packageId);
 
                         swal("Done!", "success");
 
@@ -269,10 +275,10 @@ $(document).ready(() => {
                             }
 
                             $.ajax({
-                                url: "http://localhost:8080/api/v1/hotel/deleteHotel?hotelId=" + $("#HotelId").val(),
+                                url: "http://localhost:8085/delete?hotelId=" + $("#HotelId").val(),
                                 method: "DELETE",
                                 headers: {
-                                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+                                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
                                 },
                                 success: (res) => {
                                     console.log(res.data)
@@ -310,7 +316,7 @@ $(document).ready(() => {
 
 
 function validator() {
-    if ($("#name").val() === "" || $("#category").val() === "" || $("#location").val() === "" || $("#locwithCoordinators").val() === "" || $("#email").val() === "" || $("#contact").val() === "" || $("#fulldouble").val() === "" || $("#halfdouble").val() === "" || $("#fulltriple").val() === "" || $("#halftriple").val() === "" || $("#cancellation").val() === "") {
+    if ($("#name").val() === "" || $("#category").val() === "" || $("#location").val() === "" || $("#email").val() === "" || $("#contact").val() === "" || $("#fulldouble").val() === "" || $("#halfdouble").val() === "" || $("#fulltriple").val() === "" || $("#halftriple").val() === "" || $("#cancellation").val() === "") {
         return false;
     }
     return true;
@@ -321,7 +327,6 @@ function clearFields() {
     $("#name").val("");
     $("#category").val("");
     $("#location").val("");
-    $("#locwithCoordinators").val("");
     $("#email").val("");
     $("#contact").val("");
     $("#fulldouble").val("");
@@ -329,6 +334,7 @@ function clearFields() {
     $("#fulltriple").val("");
     $("#halftriple").val("");
     $("#cancellation").val("");
+    $("#PackageIdd").val("");
 }
 
 $(document).ready(() => {
@@ -339,10 +345,10 @@ $(document).ready(() => {
 
 function  addTableField(){
     $.ajax({
-        url: "http://localhost:8080/api/v1/hotel/fetchAllHotel",
+        url: "http://localhost:8085/fetchAll",
         method: "GET",
         headers: {
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("adminAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
         },
         success: (res) => {
 
@@ -373,7 +379,24 @@ function  addTableField(){
     })
 }
 
+function getCoordinates(){
+    axios.get("https://geocode.maps.co/search?q="+$("#name").val())
+        .then((res)=>{
+            console.log(res.data[0].lat)
+            $("#hotelLocationWithCoordinates").val("Latitude : "+res.data[0].lat+',Longitude : '+res.data[0].lon)
 
+        })
+        .catch((err)=>{
+            console.log(err)
+            swal("OOPS! ","An error occurred while fetching coordinates!","error");
+
+
+        })
+}
+
+$(document).on("mouseleave","#name",()=>{
+    getCoordinates();
+})
 
 
 

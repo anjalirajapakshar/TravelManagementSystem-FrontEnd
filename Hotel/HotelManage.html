@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="HotelManage.css">
     <title>Hotel manage Form</title>
@@ -77,9 +78,11 @@
             </div>
 
             <div class="form-group col-md-6 mb-3">
-                <label>Hotel Location with Coordinators</label>
-                <input type="text" name="locwithCoordinators" class="form-control" id="locwithCoordinators" placeholder="Enter Hotel Location with Coordinators">
+                <label>Hotel Location With Coordinates</label>
+                <input type="text" name="hotelLocationWithCoordinates" class="form-control" id="hotelLocationWithCoordinates" placeholder="">
             </div>
+
+<!--            hotelLocationWithCoordinates-->
 
             <div class="form-group col-md-6 mb-3">
                 <label>Hotel Email</label>
@@ -132,6 +135,7 @@
                     <option value="Luxury">Luxury</option>
                     <option value="Super Luxury">Super Luxury</option>
                 </select>
+                <input type="text" name="id" id="PackageIdd" placeholder="PackageId" style="width: 90px">
             </div>
 
 
