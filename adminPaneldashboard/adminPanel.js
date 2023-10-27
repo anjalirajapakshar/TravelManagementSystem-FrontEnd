@@ -1,17 +1,17 @@
 //anjali
-var HAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmphbGkiLCJpYXQiOjE2OTc4OTE5OTIsImV4cCI6NDg1MTQ5MTk5Mn0.xxxS3CU8HGIkvd4vETMO7m95EU2vryQTTDPHe6e9o-g";
+var HAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IkhBIiwic3ViIjoiYW5qYWxpIiwiaWF0IjoxNjk4MDQwNDA0LCJleHAiOjQ4NTE2NDA0MDR9.brJ8SaiTCsLYNmyJDADNV_hOCWcQ8GZx7lFdX1WqwTc";
 //kasun
-var VAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYXN1biIsImlhdCI6MTY5Nzg5MjEzMSwiZXhwIjo0ODUxNDkyMTMxfQ.hweUKUmxIJT77ugJBBkYoyRxjbZ1eHmEJNKcu0yTQ2U"
+var VAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlZBIiwic3ViIjoia2FzdW4iLCJpYXQiOjE2OTgwNDA3NzYsImV4cCI6NDg1MTY0MDc3Nn0.Kfy3AZzucGGRjveWQTW0azWpxYziJ3xEmY25LuL41N8";
 //dulanjana
-var GAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkdWxhbmphbmEiLCJpYXQiOjE2OTc4OTIyOTUsImV4cCI6NDg1MTQ5MjI5NX0.DmVOZDFi5b1o630bJ8BZP1pxEbuolQgFycv0pOe2uhI"
+var GAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IkdBIiwic3ViIjoiZHVsYW5qYW5hIiwiaWF0IjoxNjk4MDQwODQ0LCJleHAiOjQ4NTE2NDA4NDR9.ZVFku0nnsLCSc9QN-1sQtCgAzlND9-eGwpsEqEaHt0I";
 //malithi
-var PAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYWxpdGhpIiwiaWF0IjoxNjk3ODkyNDAyLCJleHAiOjQ4NTE0OTI0MDJ9.gtcCEpHg3WDTq5DIYKu27WyMGP-JYMJmHTnmcgJzLIM"
+var PAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlBBIiwic3ViIjoibWFsaXRoaSIsImlhdCI6MTY5ODA0MDkwNSwiZXhwIjo0ODUxNjQwOTA1fQ.I-0C7nqNmU22YEifSWvVLgtbrynlh61TZfPy98NHlmU";
 //prasadi
-var PDAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwcmFzYWRpIiwiaWF0IjoxNjk3ODkyNTE5LCJleHAiOjQ4NTE0OTI1MTl9.TU0_2KNTJx5Mafwb0DPLUSCriM_VXfq-HFHpdyaOM68"
+var PDAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlBEQSIsInN1YiI6InByYXNhZGkiLCJpYXQiOjE2OTgwNDA5NjMsImV4cCI6NDg1MTY0MDk2M30.sz-7PTGq2A8K35crnZbe2HThRRy7cJjcHfG43XDGSYM";
 //sandasi
-var PAYAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5kYXNpIiwiaWF0IjoxNjk3ODkyNjI5LCJleHAiOjQ4NTE0OTI2Mjl9.woXWzlMHyW_cEPITfyzEOwuk5R3lfIie9J2gCVDR03Y"
+var PAYAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlBBWUEiLCJzdWIiOiJzYW5kYXNpIiwiaWF0IjoxNjk4MDQxMDExLCJleHAiOjQ4NTE2NDEwMTF9.0fN8DLh3wpx_D3UeY1caA1nXpLYxKX1JWUfhdVF6MHk";
 //damian
-var UAToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYW1pYW4iLCJpYXQiOjE2OTc4OTI3MzMsImV4cCI6NDg1MTQ5MjczM30.yKtbgU1-n7yi_vgrrTNtHKASUOdGJUQL3WVf3H9Iah8"
+var UAToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlVBIiwic3ViIjoiZGFtaWFuIiwiaWF0IjoxNjk4MDQxMDY0LCJleHAiOjQ4NTE2NDEwNjR9.QG68GCMTuVWxPmU4JcuB1qHP7OzDhuw418bSQVqJnpU";
 
 
 var selectedService = '';
@@ -60,7 +60,7 @@ function guideService() {
       var username = $("#username").val();
       var password  = $("#password").val();
 
-      var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
 
       $.ajax({
          url : url,
@@ -111,7 +111,7 @@ function hotelService() {
       var username = $("#username").val();
       var password  = $("#password").val();
 
-      var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
 
       $.ajax({
          url : url,
@@ -158,7 +158,7 @@ function vehicleService() {
       var username = $("#username").val();
       var password  = $("#password").val();
 
-      var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
 
       $.ajax({
          url : url,
@@ -204,7 +204,7 @@ function packageService() {
       var username = $("#username").val();
       var password  = $("#password").val();
 
-      var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
 
       $.ajax({
          url : url,
@@ -328,50 +328,50 @@ function packageService() {
 //    });
 // }
 //
-// function userService() {
-//    $(document).ready(()=>{
-//       localStorage.setItem("adminAuthToken",JSON.stringify(GAToken))
-//    });
-//
-//
-//    $("#submit").on("click",()=>{
-//       if($("#username").val()==="" || $("#password").val()===""){
-//          return swal("Please fill in all the fields!","OOPS!","error");
-//       }
-//
-//       var username = $("#username").val();
-//       var password  = $("#password").val();
-//
-//       var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
-//
-//       $.ajax({
-//          url : url,
-//          method :"GET",
-//          headers : {
-//             /*    "content-type":"application/json",*/
-//             "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
-//          },
-//          // data : JSON.stringify(hotel),
-//          success : (res)=>{
-//             console.log("Server : "+res.statusCode)
-//             console.log(res.data.userName)
-//             console.log(res.data.isValidated)
-//             console.log(res.data.role)
-//
-//             if(res.data.role === "GA" && selectedService === "GuideAdmin"){
-//                swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
-//                window.location.href = "../Guide/GuideDashBoard.html";
-//
-//             }
-//             return swal("Bad Credentials!","OOPS!","error")
-//
-//          },
-//          error : (err)=>{
-//             console.log("An error occurred : "+err.statusText)
-//          }
-//       })
-//    });
-// }
+function userService() {
+   $(document).ready(()=>{
+      localStorage.setItem("adminAuthToken",JSON.stringify(UAToken))
+   });
+
+
+   $("#submit").on("click",()=>{
+      if($("#username").val()==="" || $("#password").val()===""){
+         return swal("Please fill in all the fields!","OOPS!","error");
+      }
+
+      var username = $("#username").val();
+      var password  = $("#password").val();
+
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
+
+      $.ajax({
+         url : url,
+         method :"GET",
+         headers : {
+            /*    "content-type":"application/json",*/
+            "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
+         },
+         // data : JSON.stringify(hotel),
+         success : (res)=>{
+            console.log("Server : "+res.statusCode)
+            console.log(res.data.userName)
+            console.log(res.data.isValidated)
+            console.log(res.data.role)
+
+            if(res.data.role === "UA" && selectedService === "UserAdmin"){
+               swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
+               window.location.href = "../User/UserDashBoard.html";
+
+            }
+            return swal("Bad Credentials!","OOPS!","error")
+
+         },
+         error : (err)=>{
+            console.log("An error occurred : "+err.statusText)
+         }
+      })
+   });
+}
 
 
 
