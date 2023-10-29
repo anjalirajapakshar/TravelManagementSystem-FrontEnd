@@ -57,42 +57,19 @@
 
 <!--    action="https://formsubmit.co/lalaaaliliii123456@gmail.com" method="POST"-->
 
-    <form  action="">
+    <form  action="" id="form">
 
         <div class="inputBox">
             <span>card number</span>
             <input type="text" maxlength="16" id="cardno" name="cardno" class="card-number-input">
+            <span style="font-size: 10px; color: red" id="cardno_error"></span>
         </div>
 
         <div class="inputBox">
             <span>card holder</span>
             <input type="text" id="cardholder" name="cardholder" class="card-holder-input">
+            <span style="font-size: 10px; color: red" id="cardholder_error"></span>
         </div>
-
-        <div class="flexbox">
-
-            <div class="inputBox" >
-                <span>Date</span>
-                <input type="date"  id="date" name="date" class="card-holder-input">
-            </div>
-
-            <div class="inputBox" >
-                <span>User Id</span>
-                <input type="text" id="userid" name="userid" class="card-holder-input" disabled>
-            </div>
-
-            <div class="inputBox" >
-                <span>PackDetailId</span>
-                <input type="text" id="packdetailid" name="packdetailid" class="card-holder-input" disabled>
-            </div>
-
-            <div class="inputBox" >
-                <span>Amount</span>
-                <input type="text" id="amount" name="amount" class="card-holder-input" disabled>
-            </div>
-
-        </div>
-
 
         <div class="flexbox">
 
@@ -134,12 +111,43 @@
 
             <div class="inputBox">
                 <span>cVV</span>
-                <input type="text" id="cvv" name="cvv" maxlength="4" class="cvv-input">
+                <input type="text" id="cvv" name="cvv" maxlength="3" class="cvv-input">
+                <span style="font-size: 10px; color: red" id="cvv_error"></span>
             </div>
 
         </div>
 
-        <input type="button" value="pay" id="Submit" class="submit-btn">
+
+        <div class="flexbox" >
+
+            <div class="inputBox" >
+                <span>Date</span>
+                <input type="date"  id="date" name="date" class="card-holder-input">
+                <span style="font-size: 10px; color: red" id="date_error"></span>
+            </div>
+
+            <div class="inputBox" >
+                <span>User Id</span>
+                <input type="text" id="userid" name="userid" class="card-holder-input" disabled>
+                <span style="font-size: 10px; color: red" id="userid_error"></span>
+            </div>
+
+            <div class="inputBox" >
+                <span>PackDetailId</span>
+                <input type="text" id="packdetailid" name="packdetailid" class="card-holder-input" disabled>
+                <span style="font-size: 10px; color: red" id="packdetailid_error"></span>
+            </div>
+
+            <div class="inputBox" >
+                <span>Amount</span>
+                <input type="text" id="amount" name="amount" class="card-holder-input" disabled>
+                <span style="font-size: 10px; color: red" id="amount_error"></span>
+            </div>
+
+        </div>
+
+        <button type="submit" id="Submit" class="submit-btn">pay</button>
+<!--        <input type="button" value="pay" id="Submit" class="submit-btn">-->
 
 
 

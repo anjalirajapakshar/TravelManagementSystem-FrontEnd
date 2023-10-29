@@ -113,6 +113,120 @@ $(document).ready(function(){
     },5000)
 });
 
+
+var dateval = document.getElementById('date');
+var useridval = document.getElementById('userid');
+var packagedetailidval = document.getElementById('packdetailid');
+var amountval = document.getElementById('amount');
+var cvvval = document.getElementById('cvv');
+var cardnoval = document.getElementById('cardno');
+var cardholderval = document.getElementById('cardholder');
+var form = document.getElementById('form');
+
+const date_error = document.getElementById('date_error');
+const userid_error = document.getElementById('userid_error');
+const packdetailid_error = document.getElementById('packdetailid_error');
+const amount_error = document.getElementById('amount_error');
+const cvv_error = document.getElementById('cvv_error');
+const cardno_error = document.getElementById('cardno_error');
+const cardholder_error = document.getElementById('cardholder_error');
+
+const lowercaseRegex = /[a-z]/;
+const uppercaseRegex = /[A-Z]/;
+const digitRegex = /[0-9]/;
+
+
+form.addEventListener('submit',(e) => {
+    e.preventDefault();
+    if (dateval.value === '' || dateval.value == null) {
+        e.preventDefault();
+        date_error.innerHTML = "Date is required";
+        dateval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        date_error.innerHTML = "";
+        dateval.style.borderColor = "green";
+    }
+
+
+    if (useridval.value === '' || useridval.value == null) {
+        e.preventDefault();
+        userid_error.innerHTML = "UserId is required";
+        useridval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        userid_error.innerHTML = "";
+        useridval.style.borderColor = "green";
+    }
+
+    if (packagedetailidval.value === '' || packagedetailidval.value == null) {
+        e.preventDefault();
+        packdetailid_error.innerHTML = "PId is required";
+        packagedetailidval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        packdetailid_error.innerHTML = "";
+        packagedetailidval.style.borderColor = "green";
+    }
+
+    if (amountval.value === '' || amountval.value == null) {
+        e.preventDefault();
+        amount_error.innerHTML = "Amount is required";
+        amountval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        amount_error.innerHTML = "";
+        amountval.style.borderColor = "green";
+    }
+
+    if (cvvval.value === '' || cvvval.value == null || lowercaseRegex.test(cvvval.value)|| uppercaseRegex.test(cvvval.value)) {
+        e.preventDefault();
+        cvv_error.innerHTML = "Valid CVV is required";
+        cvvval.style.borderColor = "red";
+    }else if (!digitRegex.test(cvvval.value)){
+        e.preventDefault();
+        cvv_error.innerHTML = "Valid CVV must be numbers";
+        cvvval.style.borderColor = "red";
+    }else {
+        e.preventDefault();
+        cvv_error.innerHTML = "";
+        cvvval.style.borderColor = "green";
+    }
+
+    if (cardnoval.value === '' || cardnoval.value == null || lowercaseRegex.test(cardnoval.value)|| uppercaseRegex.test(cardnoval.value) || !(cardnoval.value.length === 16)  ) {
+        e.preventDefault();
+        cardno_error.innerHTML = "Valid Card Number is required";
+        cardnoval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        cardno_error.innerHTML = "";
+        cardnoval.style.borderColor = "green";
+    }
+
+    if (cardholderval.value === '' || cardholderval.value == null) {
+        e.preventDefault();
+        cardholder_error.innerHTML = "name is required";
+        cardholderval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        cardholder_error.innerHTML = "";
+        cardholderval.style.borderColor = "green";
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // save
 $(document).ready(() => {
     $(document).on("click", "#Submit", () => {
