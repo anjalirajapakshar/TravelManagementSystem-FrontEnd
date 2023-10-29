@@ -724,7 +724,11 @@ $(document).ready(() => {
     })
 })
 
-
+$(document).ready(() => {
+    $(document).on("click", "#payment", () => {
+        window.location.href = "payment.html";
+    })
+})
 
 
 

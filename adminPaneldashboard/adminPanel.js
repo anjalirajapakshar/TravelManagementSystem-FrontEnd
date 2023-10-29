@@ -45,6 +45,40 @@ $(document).ready(function(){
 });
 
 
+
+var form = document.getElementById('form');
+var nameval = document.getElementById('username');
+var passwordval = document.getElementById('password');
+const name_error = document.getElementById('name_error');
+const password_error = document.getElementById('password_error');
+
+form.addEventListener('submit',(e) =>{
+   if (nameval.value === '' || nameval.value == null) {
+      e.preventDefault();
+      name_error.innerHTML = "Name is required";
+      nameval.style.borderColor = "red";
+      return swal("Please fill in all the fields!","OOPS!","error");
+   } else {
+      e.preventDefault();
+      name_error.innerHTML = "";
+      nameval.style.borderColor = "green";
+   }
+
+   if (passwordval.value === '' || passwordval.value == null) {
+      e.preventDefault();
+      password_error.innerHTML = "Name is required";
+      passwordval.style.borderColor = "red";
+      return swal("Please fill in all the fields!","OOPS!","error");
+   } else {
+      e.preventDefault();
+      password_error.innerHTML = "";
+      passwordval.style.borderColor = "green";
+   }
+
+
+})
+
+
 function guideService() {
 
    $(document).ready(()=>{
@@ -53,9 +87,9 @@ function guideService() {
 
 
    $("#submit").on("click",()=>{
-      if($("#username").val()==="" || $("#password").val()===""){
-         return swal("Please fill in all the fields!","OOPS!","error");
-      }
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
 
       var username = $("#username").val();
       var password  = $("#password").val();
@@ -104,9 +138,9 @@ function hotelService() {
 
 
    $("#submit").on("click",()=>{
-      if($("#username").val()==="" || $("#password").val()===""){
-         return swal("Please fill in all the fields!","OOPS!","error");
-      }
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
 
       var username = $("#username").val();
       var password  = $("#password").val();
@@ -151,9 +185,9 @@ function vehicleService() {
 
 
    $("#submit").on("click",()=>{
-      if($("#username").val()==="" || $("#password").val()===""){
-         return swal("Please fill in all the fields!","OOPS!","error");
-      }
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
 
       var username = $("#username").val();
       var password  = $("#password").val();
@@ -197,9 +231,9 @@ function packageService() {
 
 
    $("#submit").on("click",()=>{
-      if($("#username").val()==="" || $("#password").val()===""){
-         return swal("Please fill in all the fields!","OOPS!","error");
-      }
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
 
       var username = $("#username").val();
       var password  = $("#password").val();
@@ -335,9 +369,9 @@ function userService() {
 
 
    $("#submit").on("click",()=>{
-      if($("#username").val()==="" || $("#password").val()===""){
-         return swal("Please fill in all the fields!","OOPS!","error");
-      }
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
 
       var username = $("#username").val();
       var password  = $("#password").val();
