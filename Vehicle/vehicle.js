@@ -25,6 +25,8 @@ $(document).ready(()=>{
 //     })
 // }
 
+
+
 var regularId = '';
 var midrangeId = '';
 var luxuryId = '';
@@ -55,7 +57,7 @@ function packageIds() {
 
                 })
             } else {
-                return swal("OOPS!", response.message, "error")
+                return swal("OOPS!", "error")
             }
         }, error: (error) => {
             swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
@@ -63,21 +65,8 @@ function packageIds() {
     })
 }
 
-var hybridSelected = '';
-
-$(document).ready(function(){
-    $('.dataForm #hybrid-select').click(function(){
-
-        var comboBox = document.getElementById("hybrid-select");
-
-        hybridSelected = comboBox.options[comboBox.selectedIndex].text;
-
-        console.log(hybridSelected);
-    });
-});
-
-var packageSelected = '';
-var packageSelectedId = '';
+var packageSelected = '';  // this is category type
+var packageSelectedId = ''; //this is the package id
 
 $(document).ready(function(){
     $('.dataForm #package-select').click(function(){
@@ -96,12 +85,33 @@ $(document).ready(function(){
             case "Super Luxury" :packageSelectedId = superluxuryId;
                 break;
         }
-
-
-
         console.log(packageSelected);
+        console.log(packageSelectedId);
     });
 });
+
+
+
+
+
+$(document).ready(function(){
+
+});
+
+var hybridSelected = '';
+
+$(document).ready(function(){
+    $('.dataForm #hybrid-select').click(function(){
+
+        var comboBox = document.getElementById("hybrid-select");
+
+        hybridSelected = comboBox.options[comboBox.selectedIndex].text;
+
+        console.log(hybridSelected);
+    });
+});
+
+
 
 // save
 $(document).ready(() => {

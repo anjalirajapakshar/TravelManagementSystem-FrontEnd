@@ -97,28 +97,67 @@ $('#RegularBtn').on('click',function (){
 
 });
 
+
+var form = document.getElementById('form');
+var nameval = document.getElementById('username');
+var passwordval = document.getElementById('password');
+const name_error = document.getElementById('name_error');
+const password_error = document.getElementById('password_error');
+
+
 $(document).ready(()=>{
+
 
     // setTimeout(() => {
 
-        $("#loginn").on("click", (event) => {
-            event.preventDefault()
-            if ($("#username").val() === "" || $("#password").val() === "") {
-                return swal("Please fill in all the fields!", "OOPS!", "error");
+        $("#loginn").on("click", (e) => {
+            e.preventDefault()
+
+            if ($("#password").val() !== '' && $("#password").val() !== null) {
+                e.preventDefault();
+                name_error.innerHTML = "";
+                password_error.innerHTML = "";
+                nameval.style.borderColor = "green";
+                passwordval.style.borderColor = "green";
             }
+
+            if ($("#username").val() === '' || $("#username").val() === null) {
+                e.preventDefault();
+                name_error.innerHTML = "Name is required";
+                nameval.style.borderColor = "red";
+                return swal("Please fill in all the fields!","OOPS!","error");
+            } else {
+                e.preventDefault();
+                name_error.innerHTML = "";
+                nameval.style.borderColor = "green";
+            }
+
+
+
+
+            if ($("#password").val() === '' || $("#password").val() === null) {
+                e.preventDefault();
+                password_error.innerHTML = "Password is required";
+                passwordval.style.borderColor = "red";
+                return swal("Please fill in all the fields!", "OOPS!", "error");
+            }else {
+                e.preventDefault();
+                password_error.innerHTML = "";
+                passwordval.style.borderColor = "green";
+            }
+
+
+
+
+
+
+
+
 
             var username = $("#username").val();
             var password = $("#password").val();
 
             var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
-
-            // let user = localStorage.getItem("userAuthToken");
-            //
-            // let userrr = JSON.parse(user);
-            //
-            // console.log(user);
-            // console.log(userrr);
-            // JSON.parse(localStorage.getItem("userAuthToken"))
 
             $.ajax({
                 url: url,
