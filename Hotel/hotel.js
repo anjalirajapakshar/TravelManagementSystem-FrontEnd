@@ -5,6 +5,7 @@ $(document).ready(()=>{
     packageIds();
 });
 
+
 var regularId = '';
 var midrangeId = '';
 var luxuryId = '';
@@ -16,7 +17,7 @@ function packageIds() {
         method: "GET",
         headers: {
             // "content-type": "application/json",
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
         },
         success: (response) => {
             if (response.statusCode === 302) {
@@ -35,7 +36,7 @@ function packageIds() {
 
                 })
             } else {
-                return swal("OOPS!", response.message, "error")
+                return swal("OOPS!", "error")
             }
         }, error: (error) => {
             swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
@@ -43,8 +44,8 @@ function packageIds() {
     })
 }
 
-var packageSelected = '';
-var packageSelectedId = '';
+var packageSelected = '';  // this is category type
+var packageSelectedId = ''; //this is the package id
 
 $(document).ready(function(){
     $('.dataForm #package-select').click(function(){
@@ -63,12 +64,15 @@ $(document).ready(function(){
             case "Super Luxury" :packageSelectedId = superluxuryId;
                 break;
         }
-
-
-
         console.log(packageSelected);
+        console.log(packageSelectedId);
+        $("#PackageIdd").val(packageSelectedId)
+
     });
 });
+
+
+
 
 var petSelected = '';
 
@@ -105,7 +109,7 @@ $(document).ready(() => {
                 fullTpl: $("#fulltriple").val(),
                 halfTpl: $("#halftriple").val(),
                 cancellationCriteria: $("#cancellation").val(),
-                packageId: packageSelectedId
+                packageId: $("#PackageIdd").val()
             }
 
             $.ajax({

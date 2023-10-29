@@ -48,15 +48,17 @@
         <a href="#contact">contact</a>
     </nav>
 
-    <form action="" class="login-form" >
+    <form action="" class="login-form" id="form">
         <div class="inputBox">
             <span>username</span>
             <input type="text" id="username" placeholder="enter your name">
+            <span style="font-size: 10px; color: red" id="name_error"></span>
         </div>
 
         <div class="inputBox">
             <span>password</span>
             <input type="password" id="password" placeholder="enter your password">
+            <span style="font-size: 10px; color: red" id="password_error"></span>
         </div>
 
         <div class="remember">
