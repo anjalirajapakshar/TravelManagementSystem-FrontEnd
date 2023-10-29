@@ -640,6 +640,105 @@ $(document).ready(function(){
 });
 
 
+var packageval = document.getElementById('package');
+var durationval = document.getElementById('duration');
+var adultsval = document.getElementById('adults');
+var kidsval = document.getElementById('kids');
+var vehicleval = document.getElementById('vehicleCharge');
+var hotelval = document.getElementById('hotelCharge');
+var form = document.getElementById('form');
+
+const package_error = document.getElementById('package_error');
+const duration_error = document.getElementById('duration_error');
+const adults_error = document.getElementById('adults_error');
+const kids_error = document.getElementById('kids_error');
+const vehicle_error = document.getElementById('vehicle_error');
+const hotel_error = document.getElementById('hotel_error');
+
+const digitRegex = /\d/;
+
+form.addEventListener('submit',(e) =>{
+
+    if (packageval.value === '' || packageval.value == null) {
+        e.preventDefault();
+        package_error.innerHTML = "Package is required";
+        packageval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        package_error.innerHTML = "";
+        packageval.style.borderColor = "green";
+    }
+
+
+    if (durationval.value === '' || durationval.value == null) {
+        e.preventDefault();
+        duration_error.innerHTML = "Duration is required";
+        durationval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        duration_error.innerHTML = "";
+        durationval.style.borderColor = "green";
+    }
+
+    if (adultsval.value === '' || adultsval.value == null ) {
+        e.preventDefault();
+        adults_error.innerHTML = "Adults is required";
+        adultsval.style.borderColor = "red";
+    } else{
+        e.preventDefault();
+        adults_error.innerHTML = "";
+        adultsval.style.borderColor = "green";
+    }
+
+    if (kidsval.value === '' || kidsval.value == null ) {
+        e.preventDefault();
+        kids_error.innerHTML = "count is required";
+        kidsval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        kids_error.innerHTML = "";
+        kidsval.style.borderColor = "green";
+    }
+
+    if (vehicleval.value === '' || vehicleval.value == null) {
+        e.preventDefault();
+        vehicle_error.innerHTML = "Vehicle Charge is required";
+        vehicleval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        vehicle_error.innerHTML = "";
+        vehicleval.style.borderColor = "green";
+    }
+
+    if (hotelval.value === '' || hotelval.value == null) {
+        e.preventDefault();
+        hotel_error.innerHTML = "Hotel Charge is required";
+        hotelval.style.borderColor = "red";
+    } else {
+        e.preventDefault();
+        hotel_error.innerHTML = "";
+        hotelval.style.borderColor = "green";
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // save
 $(document).ready(() => {
     $(document).on("click", "#Submit", () => {
