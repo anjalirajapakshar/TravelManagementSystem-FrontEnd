@@ -43,6 +43,9 @@ document.querySelector('.cvv-input').oninput = () =>{
 var PackageDetailId = "";
 var PackageValue = 0;
 var userID = "";
+
+var userNamee ="";
+var userEmail ="";
 // console.log(userID)
 $(document).ready(function(){
     let username = JSON.parse(localStorage.getItem("userName"));
@@ -61,6 +64,9 @@ $(document).ready(function(){
                 console.log(res.data.userId)
 
                 $("#userid").val(res.data.userId);
+
+                userNamee = res.data.userName;
+                userEmail = res.data.userEmail;
 
                 userID = res.data.userId;
 
@@ -215,6 +221,61 @@ form.addEventListener('submit',(e) => {
 })
 
 
+// function sendMail() {
+//     var params = {
+//         cardNo:document.getElementById("cardno").value,
+//         cardHolder:document.getElementById("cardholder").value,
+//         date:document.getElementById("date").value,
+//         userid:document.getElementById("userid").value,
+//         packDetailId:document.getElementById("packdetailid").value,
+//         amount:document.getElementById("amount").value,
+//         usernamee: userNamee,
+//         useremaill: userEmail
+//     };
+//
+//     const serviceId = "service_l6o1bun";
+//     const templateId = "template_216j9i9";
+//
+//
+//     emailjs.send(serviceId,templateId,params)
+//         .then(
+//             res =>{
+//                 console.log(res);
+//                 swal("Done!", response.message, "success")
+//             }
+//         )
+//         .catch(err=>console.log(err));
+// }
+
+function sendMail() {
+    // var cardNo = document.getElementById("cardno").value;
+    // var cardHolder = document.getElementById("cardholder").value;
+    // var date = document.getElementById("date").value;
+    // // var userid = document.getElementById("userid").value; // Make sure this field is enabled for input
+    // var packDetailId = document.getElementById("packdetailid").value; // Make sure this field is enabled for input
+    // var amount = document.getElementById("amount").value; // Make sure this field is enabled for input
+
+    const params = {
+
+        cardHolder: document.getElementById("cardholder").value,
+        cardNo: document.getElementById("cardno").value,
+        packDetailId: document.getElementById("packdetailid").value,
+        amount: document.getElementById("amount").value,
+        date: document.getElementById("date").value
+    };
+
+    const serviceId = "service_l6o1bun";
+    const templateId = "template_216j9i9";
+
+    emailjs.send(serviceId,templateId,params)
+        .then(
+            res => {
+                console.log(res);
+                swal("Done!", "Your payment has been sent successfully", "success");
+            }
+        )
+        .catch(err => console.log(err));
+}
 
 
 
@@ -253,11 +314,15 @@ $(document).ready(() => {
                 data: JSON.stringify(payment),
                 success: (response) => {
                     if (response.statusCode === 200 || response.statusCode === 201) {
-                        clearFields();
+                        sendMail();
                         swal("Done!", response.message, "success")
+                        clearFields();
+
                     } else {
                         return swal("OOPS!", response.message, "error")
                     }
+
+
                 }, error: (error) => {
                     swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
                 },
