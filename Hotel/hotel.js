@@ -72,8 +72,6 @@ $(document).ready(function(){
 });
 
 
-
-
 var petSelected = '';
 
 $(document).ready(function(){
@@ -314,9 +312,6 @@ $(document).ready(() => {
         }
     })
 });
-
-
-
 
 
 function validator() {
