@@ -313,8 +313,6 @@ $(document).ready(function(){
 
 var guideincluded = ''; // if guide included
 
-
-
 $(document).ready(function(){
     $('.dataForm .row2 #guideincluded-select').click(function(){
 
@@ -378,6 +376,8 @@ $(document).ready(function(){
                 console.log(res.data)
                 if (res.statusCode === 200 || res.statusCode === 201) {
 
+                    totalPackagePrice = 0;
+
                     guideId = res.data.guideId;
 
                     let manDayValue = res.data.manDayValue;
@@ -423,6 +423,8 @@ $(document).ready(function(){
 var vehicleid = ""; //vehicleid
 
 $(document).ready(function(){
+    var prevVehicleCharge = 0;
+
     $('.dataForm #vehicle-select').click(function(){
 
         var comboBox = document.getElementById("vehicle-select");
@@ -454,13 +456,19 @@ $(document).ready(function(){
 
                     let vehiclecharge = parseInt(feeForDay, 10) * parseInt(days, 10) ;
 
+                    totalPackagePrice -= prevVehicleCharge;
+
                     $("#vehicleCharge").val(vehiclecharge);
 
                     if (vehiclecharge != null){
                         totalPackagePrice = parseInt(totalPackagePrice, 10) + parseInt(vehiclecharge, 10) ;
+                        prevVehicleCharge = vehiclecharge;
                         console.log(totalPackagePrice)
+
                         $("#totPackageCharge").val(totalPackagePrice);
                     }
+
+
 
 
                     // return swal("Done!", "success");
@@ -480,6 +488,8 @@ $(document).ready(function(){
 
 var hotelId = ""; //hotel id
 $(document).ready(function(){
+    var prevVehicleCharge = 0;
+
     $('.dataForm #hotel-select').click(function(){
 
         var comboBox = document.getElementById("hotel-select");
@@ -519,12 +529,18 @@ $(document).ready(function(){
                         switch (roomSelected) {
                             case "Full Board A/C Luxury Room – Double" : hotelRoomFee = res.data.fullDbl;
                                 let hotel1Charge = parseInt(hotelRoomFee, 10) * parseInt(days, 10) ;
+
+                                totalPackagePrice -= prevVehicleCharge;
+
                                 console.log(hotel1Charge)
                                 $("#hotelCharge").val(hotel1Charge);
 
                                 if (hotel1Charge != null){
                                     totalPackagePrice = parseInt(totalPackagePrice, 10) + parseInt(hotel1Charge, 10) ;
+
                                     console.log(totalPackagePrice)
+
+                                    prevVehicleCharge = hotel1Charge;
 
                                     servicecharge = parseInt(totalPackagePrice, 10) * 5 / 100 ;
                                     totbooking = parseInt(totalPackagePrice, 10) + parseInt(servicecharge, 10)
@@ -537,12 +553,17 @@ $(document).ready(function(){
                                 break;
                             case "Half Board A/C Luxury Room - Double" : hotelRoomFee = res.data.halfDbl;
                                 let hotel2Charge = parseInt(hotelRoomFee, 10) * parseInt(days, 10) ;
+
+                                totalPackagePrice -= prevVehicleCharge;
+
                                 console.log(hotel2Charge)
                                 $("#hotelCharge").val(hotel2Charge);
 
                                 if (hotel2Charge != null){
                                     totalPackagePrice = parseInt(totalPackagePrice, 10) + parseInt(hotel2Charge, 10) ;
                                     console.log(totalPackagePrice)
+
+                                    prevVehicleCharge = hotel2Charge;
 
                                     servicecharge = parseInt(totalPackagePrice, 10) * 5 / 100 ;
                                     totbooking = parseInt(totalPackagePrice, 10) + parseInt(servicecharge, 10)
@@ -555,12 +576,17 @@ $(document).ready(function(){
                                 break;
                             case "Full Board A/C Luxury Room – Triple" : hotelRoomFee = res.data.fullTpl;
                                 let hotel3Charge = parseInt(hotelRoomFee, 10) * parseInt(days, 10) ;
+
+                                totalPackagePrice -= prevVehicleCharge;
+
                                 console.log(hotel3Charge)
                                 $("#hotelCharge").val(hotel3Charge);
 
                                 if (hotel3Charge != null){
                                     totalPackagePrice = parseInt(totalPackagePrice, 10) + parseInt(hotel3Charge, 10) ;
                                     console.log(totalPackagePrice)
+
+                                    prevVehicleCharge = hotel3Charge;
 
                                     servicecharge = parseInt(totalPackagePrice, 10) * 5 / 100 ;
                                     totbooking = parseInt(totalPackagePrice, 10) + parseInt(servicecharge, 10)
@@ -573,12 +599,17 @@ $(document).ready(function(){
                                 break;
                             case "Half Board A/C Luxury Room - Triple" : hotelRoomFee = res.data.halfTpl;
                                 let hotel4Charge = parseInt(hotelRoomFee, 10) * parseInt(days, 10) ;
+
+                                totalPackagePrice -= prevVehicleCharge;
+
                                 console.log(hotel4Charge)
                                 $("#hotelCharge").val(hotel4Charge);
 
                                 if (hotel4Charge != null){
                                     totalPackagePrice = parseInt(totalPackagePrice, 10) + parseInt(hotel4Charge, 10) ;
                                     console.log(totalPackagePrice)
+
+                                    prevVehicleCharge = hotel4Charge;
 
                                     servicecharge = parseInt(totalPackagePrice, 10) * 5 / 100 ;
                                     totbooking = parseInt(totalPackagePrice, 10) + parseInt(servicecharge, 10)
@@ -721,21 +752,6 @@ form.addEventListener('submit',(e) =>{
     }
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
