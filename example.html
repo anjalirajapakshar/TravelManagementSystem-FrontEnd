@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("ePmkJcWe-3DUr49Ft");
+        })();
+    </script>
 </head>
 <body>
 
-<form action="https://formsubmit.co/el/xetewo" method="POST" >
-  <input type="text" maxlength="16" id="r" name="r" class="card-number-input">
+<form>
+  <input type="text" id="name" name="name">
 
-  <input type="text" maxlength="16" id="re" name="re" class="card-number-input">
-  <input type="text" maxlength="16" id="aaaaaaa" name="aaaaaaa" class="card-number-input">
+  <input type="text" id="email" name="email" >
+  <input type="text" id="message" name="message" >
 
 
-  <input type="button" value="pay" id="Submit" class="submit-btn">
+  <input type="button" value="pay" id="Submit"  onclick="sendMail()" class="submit-btn">
 </form>
 
-
+<script src="example.js"></script>
 
 </body>
 </html>

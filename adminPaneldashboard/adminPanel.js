@@ -271,97 +271,97 @@ function packageService() {
 
 
 
-//
-// function packageDetailsService() {
-//    $(document).ready(()=>{
-//       localStorage.setItem("adminAuthToken",JSON.stringify(GAToken))
-//    });
-//
-//
-//    $("#submit").on("click",()=>{
-//       if($("#username").val()==="" || $("#password").val()===""){
-//          return swal("Please fill in all the fields!","OOPS!","error");
-//       }
-//
-//       var username = $("#username").val();
-//       var password  = $("#password").val();
-//
-//       var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
-//
-//       $.ajax({
-//          url : url,
-//          method :"GET",
-//          headers : {
-//             /*    "content-type":"application/json",*/
-//             "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
-//          },
-//          // data : JSON.stringify(hotel),
-//          success : (res)=>{
-//             console.log("Server : "+res.statusCode)
-//             console.log(res.data.userName)
-//             console.log(res.data.isValidated)
-//             console.log(res.data.role)
-//
-//             if(res.data.role === "GA" && selectedService === "GuideAdmin"){
-//                swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
-//                window.location.href = "../Guide/GuideDashBoard.html";
-//
-//             }
-//             return swal("Bad Credentials!","OOPS!","error")
-//
-//          },
-//          error : (err)=>{
-//             console.log("An error occurred : "+err.statusText)
-//          }
-//       })
-//    });
-// }
-//
-// function paymentService() {
-//    $(document).ready(()=>{
-//       localStorage.setItem("adminAuthToken",JSON.stringify(GAToken))
-//    });
-//
-//
-//    $("#submit").on("click",()=>{
-//       if($("#username").val()==="" || $("#password").val()===""){
-//          return swal("Please fill in all the fields!","OOPS!","error");
-//       }
-//
-//       var username = $("#username").val();
-//       var password  = $("#password").val();
-//
-//       var url = "http://localhost:8080/api/v1/user/validate?username=" + username + "&password=" + password;
-//
-//       $.ajax({
-//          url : url,
-//          method :"GET",
-//          headers : {
-//             /*    "content-type":"application/json",*/
-//             "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
-//          },
-//          // data : JSON.stringify(hotel),
-//          success : (res)=>{
-//             console.log("Server : "+res.statusCode)
-//             console.log(res.data.userName)
-//             console.log(res.data.isValidated)
-//             console.log(res.data.role)
-//
-//             if(res.data.role === "GA" && selectedService === "GuideAdmin"){
-//                swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
-//                window.location.href = "../Guide/GuideDashBoard.html";
-//
-//             }
-//             return swal("Bad Credentials!","OOPS!","error")
-//
-//          },
-//          error : (err)=>{
-//             console.log("An error occurred : "+err.statusText)
-//          }
-//       })
-//    });
-// }
-//
+
+function packageDetailsService() {
+   $(document).ready(()=>{
+      localStorage.setItem("adminAuthToken",JSON.stringify(PDAToken))
+   });
+
+
+   $("#submit").on("click",()=>{
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
+
+      var username = $("#username").val();
+      var password  = $("#password").val();
+
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
+
+      $.ajax({
+         url : url,
+         method :"GET",
+         headers : {
+            /*    "content-type":"application/json",*/
+            "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
+         },
+         // data : JSON.stringify(hotel),
+         success : (res)=>{
+            console.log("Server : "+res.statusCode)
+            console.log(res.data.userName)
+            console.log(res.data.isValidated)
+            console.log(res.data.role)
+
+            if(res.data.role === "PDA" && selectedService === "PackageDetailAdmin"){
+               swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
+               window.location.href = "../PackageDetails/PackageDetaildashBoard.html";
+
+            }
+            return swal("Wrong Service!","OOPS!","error")
+
+         },
+         error : (err)=>{
+            console.log("An error occurred : "+err.statusText)
+         }
+      })
+   });
+}
+
+function paymentService() {
+   $(document).ready(()=>{
+      localStorage.setItem("adminAuthToken",JSON.stringify(PAYAToken))
+   });
+
+
+   $("#submit").on("click",()=>{
+      // if($("#username").val()==="" || $("#password").val()===""){
+      //    return swal("Please fill in all the fields!","OOPS!","error");
+      // }
+
+      var username = $("#username").val();
+      var password  = $("#password").val();
+
+      var url = "http://localhost:8080/validate?username=" + username + "&password=" + password;
+
+      $.ajax({
+         url : url,
+         method :"GET",
+         headers : {
+            /*    "content-type":"application/json",*/
+            "Authorization" : "Bearer "+JSON.parse(localStorage.getItem("adminAuthToken"))
+         },
+         // data : JSON.stringify(hotel),
+         success : (res)=>{
+            console.log("Server : "+res.statusCode)
+            console.log(res.data.userName)
+            console.log(res.data.isValidated)
+            console.log(res.data.role)
+
+            if(res.data.role === "PAYA" && selectedService === "PaymentAdmin"){
+               swal("Login Success!", "Redirecting you to the admin dashboard!", "success");
+               window.location.href = "../Payment/paymentDashBoard.html";
+
+            }
+            return swal("Bad Credentials!","OOPS!","error")
+
+         },
+         error : (err)=>{
+            console.log("An error occurred : "+err.statusText)
+         }
+      })
+   });
+}
+
 function userService() {
    $(document).ready(()=>{
       localStorage.setItem("adminAuthToken",JSON.stringify(UAToken))

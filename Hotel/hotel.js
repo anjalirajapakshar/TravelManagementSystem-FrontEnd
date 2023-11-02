@@ -17,7 +17,7 @@ function packageIds() {
         method: "GET",
         headers: {
             // "content-type": "application/json",
-            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("vehicleAuthToken"))
+            "Authorization": "Bearer " + JSON.parse(localStorage.getItem("hotelAuthToken"))
         },
         success: (response) => {
             if (response.statusCode === 302) {
