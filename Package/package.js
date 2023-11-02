@@ -133,32 +133,32 @@ $(document).ready(() => {
 
 //delete
 $(document).ready(() => {
-    $(document).on("keydown", "#Packcategory", (event) => {
-
-        if (event.key === 'Enter') {
-            $.ajax({
-                url: "http://localhost:8082/getPackageByUserName?PackageName=" + $("#Packcategory").val(),
-                method: "GET",
-                headers: {
-                    "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
-                },
-                success: (res) => {
-                    console.log(res.data)
-                    if (res.statusCode === 200 || res.statusCode === 201) {
-                        $("#PackageId").prop("disabled", false);
-                        $("#PackageId").val(res.data.packageId);
-                        $("#PackageId").prop("disabled", true);
-                        $("#Packcategory").val(res.data.packageCategory);
-                        $("#Vehiclecategory").val(res.data.vehicleCategory);
-                        $("#Hotelcategory").val(res.data.hotelCategory);
-
-                        swal("OOPS!","cannot find guide");
-
-
-                        $(document).on("click", "#deleteGuide", () => {
-                            if ($("#PackageId").val() === "") {
-                                return swal("OOPS!", "Please enter a Package name to delete!", "error");
-                            }
+    // $(document).on("keydown", "#Packcategory", (event) => {
+    //
+    //     if (event.key === 'Enter') {
+    //         $.ajax({
+    //             url: "http://localhost:8082/getPackageByUserName?PackageName=" + $("#Packcategory").val(),
+    //             method: "GET",
+    //             headers: {
+    //                 "Authorization": "Bearer " + JSON.parse(localStorage.getItem("packageAuthToken"))
+    //             },
+    //             success: (res) => {
+    //                 console.log(res.data)
+    //                 if (res.statusCode === 200 || res.statusCode === 201) {
+    //                     $("#PackageId").prop("disabled", false);
+    //                     $("#PackageId").val(res.data.packageId);
+    //                     $("#PackageId").prop("disabled", true);
+    //                     $("#Packcategory").val(res.data.packageCategory);
+    //                     $("#Vehiclecategory").val(res.data.vehicleCategory);
+    //                     $("#Hotelcategory").val(res.data.hotelCategory);
+    //
+    //                     swal("OOPS!","cannot find guide");
+    //
+    //
+    //                     $(document).on("click", "#deleteGuide", () => {
+    //                         if ($("#PackageId").val() === "") {
+    //                             return swal("OOPS!", "Please enter a Package name to delete!", "error");
+    //                         }
 
                             $.ajax({
                                 url: "http://localhost:8082/delete?packagesId=" + $("#PackageId").val(),
@@ -186,19 +186,19 @@ $(document).ready(() => {
 
 
                             });
-
-
-                        })
-                    }
-                    swal("OOPS!","error");
-
-                },
-                error: (error) => {
-                    swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
-                }
-            });
-        }
-    });
+    //
+    //
+    //                     })
+    //                 }
+    //                 swal("OOPS!","error");
+    //
+    //             },
+    //             error: (error) => {
+    //                 swal("OOPS!", "An error occurred while communicating with the server ! ", "error");
+    //             }
+    //         });
+    //     }
+    // });
 });
 
 function validator() {
